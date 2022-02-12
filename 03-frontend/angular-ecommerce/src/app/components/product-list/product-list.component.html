@@ -1,0 +1,70 @@
+<div class="main-content">
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Loop over the collection of products -->
+        <div *ngFor="let product of products" class="col-md-3 col-sm-6">
+          <div class="product-box">
+            <a routerLink="/products/{{ product.id }}"> 
+              <img
+                src="{{ product.imageUrl }}"
+                alt="Product image"
+                class="img-responsive"
+              />
+            </a>
+            <div class="product-details">
+              <a routerLink="/products/{{ product.id }}">
+                <h1>{{ product.name }}</h1>
+              </a>
+              <div class="price">{{ product.unitPrice | currency: "USD" }}</div>
+              <button class="primary-btn" (click)="addToCart(product)">
+                Add to cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- if products is null or undefined a message -->
+        <div
+          *ngIf="products?.length == 0"
+          class="alert alert-warning col-md-12"
+          role="alert"
+        >
+          No products found.
+        </div>
+      </div>
+      <!-- Begin footer -->
+      <div class="footer-pagination">
+        <div class="row">
+            <div
+              class="row pagination-container"
+              *ngIf="!(products?.length == 0)"
+            >
+              <div style="width:auto;">
+                <span class="mr-2">Page size&nbsp;</span>
+                <select (change)="updatePageSize($any($event.target).value)">
+                  <option selected="true">5</option>
+                  <option>10</option>
+                  <option>20</option>
+                  <option>50</option>
+                </select>
+              </div>
+              <div style="width: auto; margin-top: 1rem;">
+                <!-- maxSize will limit the number of page display in the pagination
+                   so it wont overflow even if a million pages of product-->
+                <ngb-pagination
+                  [(page)]="thePageNumber"
+                  [pageSize]="thePageSize"
+                  [collectionSize]="theTotalElements"
+                  [maxSize]="5"
+                  [boundaryLinks]="true"
+                  (pageChange)="listProducts()"
+                >
+                </ngb-pagination>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End footer -->
+    </div>
+  </div>

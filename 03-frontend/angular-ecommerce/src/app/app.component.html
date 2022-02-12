@@ -1,0 +1,48 @@
+<!-- npm install bootsrap - to install bootsrap -->
+<!-- npm install --save @fortawesome/fontawesome-free - to install fontawesom -->
+<!-- then copy paste both bootstrap and fontawesom directory to angular.json -->
+<!-- ng add @angular/localize - dependencies to install ng bootsrap -->
+<!-- npm install @ng-bootstrap/ng-bootstrap@bootstrap5 - command to install ng bootstrap -->
+<!-- then import to app.module -->
+<div class="page-wrapper" >
+  <!-- MENU SIDEBAR-->
+  <aside class="menu-sidebar d-none d-lg-block">
+    <div class="logo">
+      <a routerLink="/product-list">
+        <img
+          src="../assets/images/logo.png"
+          alt="luv2shop"
+          class="img-responsive"
+        />
+      </a>
+    </div>
+    <app-product-category-menu></app-product-category-menu>
+  </aside>
+  <!-- END MENU SIDEBAR-->
+  <!-- PAGE CONTAINER-->
+  <div class="page-container">
+    <!-- HEADER DESKTOP-->
+    <header class="header-desktop" >
+      <div class="section-content section-content-p30">
+        <div class="container-fluid">
+          <div class="header-wrap">
+            <app-search></app-search>
+            <app-cart-status></app-cart-status>
+            
+          </div>
+          <div class="account-wrap"></div>
+        </div>
+      </div>
+    </header>
+    <!-- END HEADER DESKTOP-->
+    <!-- MAIN CONTENT-->
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<footer>
+  <ul style="margin-bottom: 0%;">
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Contact Us</a></li>
+    <li><a href="#">Help</a></li>
+  </ul>
+</footer>

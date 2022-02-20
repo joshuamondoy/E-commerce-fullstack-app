@@ -1,0 +1,45 @@
+<div class="login-status-header">
+
+    <div *ngIf="isAuthenticated && userFullName" class="login-status-user-info">
+        Welcome back {{ userFullName }}!
+    </div>
+
+    <button *ngIf="!isAuthenticated" routerLink="/login" class="security-btn">Login</button>
+
+    <button *ngIf="isAuthenticated" (click)="logout()" class="security-btn">Logout</button>
+
+</div>
+<!-- <div class="login-status-header">
+  <div *ngIf="isAuthenticated && userFullName" class="login-status-user-info">
+    Welcome back {{ userFullName }}!
+  </div>
+  <div class="dropdown pt-2">
+    <button
+      class="dropdown-toggle"
+      type="button"
+      id="dropdownMenu2"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    ></button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <li>
+        <button
+          *ngIf="!isAuthenticated"
+          routerLink="/login"
+          class="dropdown-item"
+        >
+          Login
+        </button>
+      </li>
+      <li>
+        <button
+          *ngIf="isAuthenticated"
+          (click)="logout()"
+          class="dropdown-item"
+        >
+          Logout
+        </button>
+      </li>
+    </ul>
+  </div>
+</div> -->

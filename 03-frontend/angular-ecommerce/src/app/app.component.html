@@ -1,9 +1,12 @@
 <!-- npm install bootsrap - to install bootsrap -->
 <!-- npm install --save @fortawesome/fontawesome-free - to install fontawesom -->
 <!-- then copy paste both bootstrap and fontawesom directory to angular.json -->
-<!-- ng add @angular/localize - dependencies to install ng bootsrap -->
-<!-- npm install @ng-bootstrap/ng-bootstrap@bootstrap5 - command to install ng bootstrap -->
+<!-- ng add @angular/localize - dependencies to install NGbootsrap -->
+<!-- npm install @ng-bootstrap/ng-bootstrap@bootstrap5 - command to install NGbootstrap -->
 <!-- then import to app.module -->
+<!-- npm install @okta/okta-signin-widget - install okta for authentication and authorization -->
+<!-- npm install @okta/okta-angular - install dependecy-->
+<!-- then add the css to angular.json just like bootstrap -->
 <div class="page-wrapper" >
   <!-- MENU SIDEBAR-->
   <aside class="menu-sidebar d-none d-lg-block">
@@ -16,7 +19,9 @@
         />
       </a>
     </div>
+    
     <app-product-category-menu></app-product-category-menu>
+
   </aside>
   <!-- END MENU SIDEBAR-->
   <!-- PAGE CONTAINER-->
@@ -26,7 +31,11 @@
       <div class="section-content section-content-p30">
         <div class="container-fluid">
           <div class="header-wrap">
+
             <app-search></app-search>
+            
+            <app-login-status></app-login-status>
+            
             <app-cart-status></app-cart-status>
             
           </div>

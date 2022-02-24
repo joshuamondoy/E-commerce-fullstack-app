@@ -21,10 +21,12 @@ import { Router } from '@angular/router';
 import myAppConfig from './config/my-app-config';
 import { OktaAuth } from '@okta/okta-auth-js';
 import { OKTA_CONFIG, OktaAuthModule } from '@okta/okta-angular';
+import { MembersPageComponent } from './components/members-page/members-page.component';
+import { OrderHistoryComponent } from './components/order-history/order-history.component';
 
 const oktaConfig = Object.assign(
   {
-    onAuthRequired: (injector) => {
+    onAuthRequired: (oktaAuth, injector) => {
       const router = injector.get(Router);
 
       // Redirect the user to your custom login page
@@ -48,6 +50,8 @@ const oktaAuth = new OktaAuth(oktaConfig);
     CheckoutComponent,
     LoginComponent,
     LoginStatusComponent,
+    MembersPageComponent,
+    OrderHistoryComponent,
   ],
   imports: [
     BrowserModule,

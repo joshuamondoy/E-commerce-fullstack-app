@@ -1,45 +1,55 @@
 <div class="login-status-header">
+  <ul class="link-list">
+    <li>
+      <a
+        *ngIf="isAuthenticated"
+        routerLink="/members"
+        class="list"
+        routerLinkActive="active-link"
+        >Member</a
+      >
+    </li>
+    <li>
+      <a
+        *ngIf="isAuthenticated"
+        routerLink="/order-history"
+        class="list"
+        routerLinkActive="active-link"
+        >Orders</a
+      >
+    </li>
+    <li>
+      <a
+        *ngIf="isAuthenticated"
+        (click)="logout()"
+        class="list"
+        routerLinkActive="active-link"
+        >Logout</a
+      >
+    </li>
+    <li>
+      <button
+        *ngIf="!isAuthenticated"
+        routerLink="/login"
+        class="security-btn"
+      >
+        Login
+      </button>
+    </li>
+    <li
+      *ngIf="isAuthenticated && userFullName"
+      class="list"
+      style="color: #555; font-weight: bold"
+    >
+      Hi {{ userFullName }}!
+    </li>
+  </ul>
 
-    <div *ngIf="isAuthenticated && userFullName" class="login-status-user-info">
-        Welcome back {{ userFullName }}!
-    </div>
-
-    <button *ngIf="!isAuthenticated" routerLink="/login" class="security-btn">Login</button>
+  <!-- <button *ngIf="!isAuthenticated" routerLink="/login" class="security-btn">Login</button>
 
     <button *ngIf="isAuthenticated" (click)="logout()" class="security-btn">Logout</button>
 
+    <button *ngIf="isAuthenticated" routerLink="/members" class="security-btn ml-1">Member</button>
+
+    <button *ngIf="isAuthenticated" routerLink="/order-history" class="security-btn ml-1">Orders</button> -->
 </div>
-<!-- <div class="login-status-header">
-  <div *ngIf="isAuthenticated && userFullName" class="login-status-user-info">
-    Welcome back {{ userFullName }}!
-  </div>
-  <div class="dropdown pt-2">
-    <button
-      class="dropdown-toggle"
-      type="button"
-      id="dropdownMenu2"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    ></button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-      <li>
-        <button
-          *ngIf="!isAuthenticated"
-          routerLink="/login"
-          class="dropdown-item"
-        >
-          Login
-        </button>
-      </li>
-      <li>
-        <button
-          *ngIf="isAuthenticated"
-          (click)="logout()"
-          class="dropdown-item"
-        >
-          Logout
-        </button>
-      </li>
-    </ul>
-  </div>
-</div> -->

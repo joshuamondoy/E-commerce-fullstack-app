@@ -3,6 +3,23 @@
     Rename as .security-btn
     Change border to 10px
 */
+/* my style */
+
+.link-list {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    color: white;
+    margin: 0%;
+    padding: 0%;
+}
+.list  {
+    color: white;
+    cursor: pointer;
+}
+.list:hover {
+    color: #555;
+}
 .security-btn {
     position:relative;
     right:0;
@@ -15,23 +32,30 @@
     background:#205b8d
 }
 
-/*
-    Copy from styles.css -> .form-header
+.login-status-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   height: 100%;
+}
+/* 
+Copy from styles.css -> .form-header
     Rename as .login-status-header
-*/
-.login-status-header{
+*/ 
+/* .login-status-header{
     display:-webkit-box;
     display:-webkit-flex;
     display:-moz-box;
     display:-ms-flexbox;
     display:flex
-}
+} */
 
-/*
-    Copy from styles.css -> .au-input
+
+    /* Copy from styles.css -> .au-input
     Rename as .login-status-user-info
-    - remove 'solid', 'font-size', 'color'
-*/
+    - remove 'solid', 'font-size', 'color' */
+
 .login-status-user-info {
     line-height:43px;
     border:1px;
@@ -48,4 +72,4 @@
 
 
 
-
+ 

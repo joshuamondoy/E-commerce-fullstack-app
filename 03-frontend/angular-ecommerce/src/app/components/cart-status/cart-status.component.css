@@ -1,0 +1,17 @@
+.items {
+    display: flex;
+    align-items: center;
+  
+}
+.total {
+    display: flex;
+    margin: 0%;
+}
+.cart-area {
+    display: flex;
+    align-items: center;
+}
+.fas {
+    margin: 0;
+    margin-left: 1rem;
+}

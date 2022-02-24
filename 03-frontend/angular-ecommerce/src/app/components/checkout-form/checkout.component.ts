@@ -23,7 +23,7 @@ import { Order } from 'src/app/models/order';
 })
 export class CheckoutComponent implements OnInit {
   checkoutFormGroup: FormGroup;
-
+  storage: Storage = sessionStorage;
   totalPrice: number = 0;
   totalQuantity: number = 0;
 
@@ -45,6 +45,7 @@ export class CheckoutComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    const theEmail = JSON.parse(this.storage.getItem('userEmail'))
     this.reviewCartDetails();
     this.checkoutFormGroup = this.formBuilder.group({
       customer: this.formBuilder.group({
@@ -60,7 +61,7 @@ export class CheckoutComponent implements OnInit {
           FormValidators.notOnlyWhitespace,
         ]),
 
-        email: new FormControl('', [
+        email: new FormControl(theEmail, [
           Validators.required,
           Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
         ]),

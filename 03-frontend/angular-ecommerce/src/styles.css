@@ -108,7 +108,6 @@ a,a:hover{
 }
 
 .page-wrapper{
-    overflow:hidden;
     background:#e5e5e5;
     padding-bottom:8vh
 }
@@ -217,7 +216,7 @@ section{
 }
 
 .au-input-xl{
-    min-width:935px
+    min-width:500px;
 }
 
 input.au-input.au-input-xl{
@@ -353,18 +352,20 @@ input.au-input.au-input-xl{
 
 .menu-sidebar .navbar-list .navbar-sub-list{
     display:none;
-    padding-left:34px
+    padding-left:34px;
+
 }
 
 .menu-sidebar .navbar-list .navbar-sub-list li a{
-    padding:11.5px 0
+    padding:11.5px 0;
+
 }
 
 .menu-sidebar-content{
     position:relative;
     height:-webkit-calc(100vh - 75px);
     height:-moz-calc(100vh - 75px);
-    height:calc(100vh - 75px)
+    height:calc(100vh - 75px);
 }
 
 .navbar-sidebar{
@@ -380,7 +381,9 @@ input.au-input.au-input-xl{
 }
 
 .navbar-sidebar .navbar-list li a i{
-    margin-right:19px
+    margin-right:19px;
+    
+
 }
 
 .navbar-sidebar .navbar-list li a:hover{

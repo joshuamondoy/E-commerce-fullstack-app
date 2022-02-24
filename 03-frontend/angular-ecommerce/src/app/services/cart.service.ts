@@ -19,7 +19,21 @@ export class CartService {
   totalPrice: Subject<number> = new BehaviorSubject<number>(0);
   totalQuantity: Subject<number> = new BehaviorSubject<number>(0);
 
-  constructor() {}
+  // You can choose either sessionStorage or localStorage
+  // storage: Storage = sessionStorage;
+  // Local storage persist even after closing the brower tab while session doesn't
+  storage: Storage = localStorage;
+  constructor() {
+    // read data from storage convert to object
+    let data = JSON.parse(this.storage.getItem('cartItems'));
+
+    if (data != null) {
+      this.cartItems = data;
+
+      // compute totals based on the data that is read from storage
+      this.computeCartTotals();
+    }
+  }
 
   addToCart(theCartItem: CartItem) {
     // Check if we already have the item in the cart
@@ -55,10 +69,19 @@ export class CartService {
     }
 
     // publish the new value ... all subscriber will receive the data
-
     this.totalPrice.next(totalPriceValue);
     this.totalQuantity.next(totalQuantityValue);
+
+    // persist cart data
+    this.persistCartItems();
   }
+
+  // To persist the data even after refresh 
+  persistCartItems() {
+    // convert the object to string to store in local storage
+    this.storage.setItem('cartItems', JSON.stringify(this.cartItems));
+  }
+
   decrementQuantity(theCartItem: CartItem) {
     theCartItem.quantity--;
 

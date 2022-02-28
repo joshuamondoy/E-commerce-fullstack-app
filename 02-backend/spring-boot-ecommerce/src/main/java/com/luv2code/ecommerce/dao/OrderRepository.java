@@ -9,7 +9,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
 public interface OrderRepository extends JpaRepository<Order, Long> {
-	// OrderByDateCreatedDesc is to automatically sort from latest order
+	// OrderByDateCreatedDesc is to automatically sort from latest order(spring boot magic)
     Page<Order> findByCustomerEmailOrderByDateCreatedDesc(@Param("email") String email, Pageable pageable);
 
 }
